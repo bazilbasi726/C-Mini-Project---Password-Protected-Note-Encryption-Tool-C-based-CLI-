@@ -1,0 +1,19 @@
+Start
+  |
+  v
+Parse command-line arguments (-e / -d)
+  |
+  v
+Prompt user for password
+  |
+  v
+Prepare NoteInfo structure
+  |
+  v
+Invoke encrypt/decrypt routine
+  |
+  v
+Report status to user
+  |
+  v
+End
