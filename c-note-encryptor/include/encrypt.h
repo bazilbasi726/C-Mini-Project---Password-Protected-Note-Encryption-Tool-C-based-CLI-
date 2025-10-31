@@ -1,5 +1,5 @@
-#ifndef NOTE_ENCRYPT_H
-#define NOTE_ENCRYPT_H
+#ifndef C_NOTE_ENCRYPTOR_ENCRYPT_H
+#define C_NOTE_ENCRYPTOR_ENCRYPT_H
 
 #include "types.h"
 
@@ -14,4 +14,4 @@ StatusCode decrypt_file(const NoteInfo *info, const char *password);
 }
 #endif
 
-#endif /* NOTE_ENCRYPT_H */
+#endif /* C_NOTE_ENCRYPTOR_ENCRYPT_H */

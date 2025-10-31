@@ -1,41 +1,47 @@
-# Password-Protected Note Encryption Tool (Scaffold)
+# c-note-encryptor Scaffold
 
-This repository currently contains the **scaffolding** for a C-based command-line
-utility that will encrypt and decrypt text notes using a password-driven XOR
-scheme. The implementation is intentionally incomplete at this stage; the goal
-was to establish the directory layout, shared data structures, and documentation
-artifacts referenced in `docs/DEV_BRIEF.md`.
+This repository contains the starter layout for the password-protected note encryption tool.
+It currently ships with placeholder implementations so future steps can focus on incremental
+feature development.
+
+## Building
+
+```bash
+make
+```
+
+This produces the `c-note-encryptor` executable in the project root.
+
+## Running
+
+```bash
+./c-note-encryptor
+```
+
+At this stage, the executable only prints usage information because the functional logic is not
+yet implemented.
 
 ## Repository Layout
 
 ```
 c-note-encryptor/
-├─ src/
-│  ├─ main.c
-│  ├─ encrypt.c
-│  └─ loglist.c
-├─ include/
-│  ├─ encrypt.h
-│  ├─ types.h
-│  └─ loglist.h
-├─ docs/
-│  ├─ DEV_BRIEF.md
-│  ├─ pseudocode.md
-│  └─ flowchart.txt
-├─ tests/
-│  ├─ empty.txt
-│  ├─ small.txt
-│  └─ utf8.txt
-├─ Makefile
-└─ README.md
+├── Makefile
+├── README.md
+├── docs/
+│   ├── DEV_BRIEF.md
+│   ├── flowchart.txt
+│   └── pseudocode.md
+├── include/
+│   ├── encrypt.h
+│   ├── loglist.h
+│   └── types.h
+├── src/
+│   ├── encrypt.c
+│   ├── loglist.c
+│   └── main.c
+├── tests/
+│   ├── empty.txt
+│   ├── small.txt
+│   └── utf8.txt
+└── input.txt
 ```
-
-## Building the Scaffold
-
-```
-make
-./c-note-encryptor
-```
-
-The resulting executable only prints a placeholder message. Future tasks will
-introduce argument parsing, password handling, and file transformation logic.

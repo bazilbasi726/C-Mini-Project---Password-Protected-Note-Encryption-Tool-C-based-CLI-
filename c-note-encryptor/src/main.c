@@ -1,18 +1,19 @@
+#include <stdio.h>
+#include <string.h>
+
 #include "encrypt.h"
 #include "loglist.h"
-#include "types.h"
 
-#include <stdio.h>
+static void print_usage(const char *program_name) {
+    fprintf(stderr, "Usage: %s (-e|-d) <input> <output>\n", program_name);
+}
 
-int main(void) {
-    Flags flags = {0};
-    NoteInfo info = {0};
-    LogNode *log_head = NULL;
+int main(int argc, char *argv[]) {
+    (void)argc;
+    (void)argv;
 
-    (void)flags;
-    (void)info;
-    (void)log_head;
+    print_usage("c-note-encryptor");
+    puts("Scaffold executable placeholder - no functionality yet.");
 
-    puts("c-note-encryptor scaffold ready (logic not yet implemented).");
     return 0;
 }

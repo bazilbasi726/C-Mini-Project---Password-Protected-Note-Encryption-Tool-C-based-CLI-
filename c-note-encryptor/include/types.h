@@ -1,42 +1,34 @@
-#ifndef NOTE_TYPES_H
-#define NOTE_TYPES_H
+#ifndef C_NOTE_ENCRYPTOR_TYPES_H
+#define C_NOTE_ENCRYPTOR_TYPES_H
 
 #include <stddef.h>
 
-/**
- * Represents whether the tool should encrypt or decrypt a file.
- */
-typedef enum {
+/* Operational mode selected from the command line. */
+typedef enum EncryptionMode {
     MODE_ENCRYPT = 0,
     MODE_DECRYPT
 } EncryptionMode;
 
-/**
- * Captures command-line derived information about the note transformation.
- */
-typedef struct {
+/* Aggregated paths and configuration captured from the CLI. */
+typedef struct NoteInfo {
     const char *input_path;
     const char *output_path;
     EncryptionMode mode;
 } NoteInfo;
 
-/**
- * Bit-field flags describing validation state in the CLI layer.
- */
-typedef struct {
+/* Simple bit-field flags tracking validation state in main.c. */
+typedef struct Flags {
     unsigned has_password : 1;
     unsigned io_ready : 1;
     unsigned mode_set : 1;
     unsigned reserved : 5;
 } Flags;
 
-/**
- * Placeholder status codes returned by transformation routines.
- */
-typedef enum {
+/* Status codes shared across modules during the scaffold phase. */
+typedef enum StatusCode {
     STATUS_OK = 0,
     STATUS_INVALID_ARGUMENT,
     STATUS_IO_ERROR
 } StatusCode;
 
-#endif /* NOTE_TYPES_H */
+#endif /* C_NOTE_ENCRYPTOR_TYPES_H */

@@ -1,1 +1,1 @@
-This is the default input.
+Sample note content for future encryption steps.

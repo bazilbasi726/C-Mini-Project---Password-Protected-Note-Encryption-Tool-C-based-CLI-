@@ -1,1 +1,1 @@
-sample note
+Hello scaffold!

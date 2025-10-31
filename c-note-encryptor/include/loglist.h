@@ -1,5 +1,5 @@
-#ifndef NOTE_LOGLIST_H
-#define NOTE_LOGLIST_H
+#ifndef C_NOTE_ENCRYPTOR_LOGLIST_H
+#define C_NOTE_ENCRYPTOR_LOGLIST_H
 
 #include <stddef.h>
 
@@ -8,8 +8,8 @@ typedef struct LogNode {
     struct LogNode *next;
 } LogNode;
 
-LogNode *log_append(LogNode *tail, const char *message);
-void log_print(const LogNode *head);
-void log_free(LogNode *head);
+LogNode *loglist_append(LogNode *head, const char *message);
+void loglist_print(const LogNode *head);
+void loglist_free(LogNode *head);
 
-#endif /* NOTE_LOGLIST_H */
+#endif /* C_NOTE_ENCRYPTOR_LOGLIST_H */

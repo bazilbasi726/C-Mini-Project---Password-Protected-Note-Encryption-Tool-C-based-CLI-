@@ -1,7 +1,7 @@
 # Build artifacts
-build/
+c-note-encryptor
 *.o
 
-# Editor files
-.DS_Store
+# Editor settings
 *.swp
+.DS_Store
