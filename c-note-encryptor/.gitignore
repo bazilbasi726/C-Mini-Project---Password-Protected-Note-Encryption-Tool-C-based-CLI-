@@ -1,4 +1,10 @@
 # Build artifacts
+c-note-encryptor
+*.o
+
+# Editor settings
+*.swp
+.DS_Store
 build/
 *.o
 
