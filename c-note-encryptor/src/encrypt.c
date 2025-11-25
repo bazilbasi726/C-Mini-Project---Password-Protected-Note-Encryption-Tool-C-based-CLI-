@@ -14,4 +14,9 @@ StatusCode decrypt_file(const NoteInfo *info, const char *password) {
     (void)password;
     puts("decrypt_file stub");
     return STATUS_OK;
+#include "encrypt.h"
+
+void encrypt_note(const char *input, char *output) {
+    (void)input;
+    (void)output;
 }

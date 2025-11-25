@@ -13,3 +13,9 @@ void loglist_print(const LogNode *head);
 void loglist_free(LogNode *head);
 
 #endif /* C_NOTE_ENCRYPTOR_LOGLIST_H */
+#ifndef LOGLIST_H
+#define LOGLIST_H
+
+void log_event(const char *message);
+
+#endif

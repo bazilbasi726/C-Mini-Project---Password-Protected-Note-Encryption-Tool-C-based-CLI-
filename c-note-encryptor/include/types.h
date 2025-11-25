@@ -32,3 +32,12 @@ typedef enum StatusCode {
 } StatusCode;
 
 #endif /* C_NOTE_ENCRYPTOR_TYPES_H */
+#ifndef TYPES_H
+#define TYPES_H
+
+typedef struct {
+    char username[64];
+    char password[64];
+} user_credentials_t;
+
+#endif
