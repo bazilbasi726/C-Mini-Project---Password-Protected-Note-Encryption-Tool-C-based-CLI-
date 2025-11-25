@@ -8,3 +8,5 @@ This brief captures the expectations that guided the initial scaffold created vi
 - Supply lightweight documentation references (pseudocode and flowchart placeholders).
 - Ensure the repository structure matches the agreed project layout so subsequent prompts can
   build on a stable foundation.
+- Parse CLI flags (-e/-d) and prompt for a non-empty password while routing into stubbed
+  encrypt/decrypt functions so later work can focus on real I/O logic.

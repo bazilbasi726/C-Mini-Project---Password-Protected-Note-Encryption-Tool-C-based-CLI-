@@ -14,12 +14,15 @@ This produces the `c-note-encryptor` executable in the project root.
 
 ## Running
 
+The scaffold accepts encrypt or decrypt flags but the underlying logic is still stubbed:
+
 ```bash
-./c-note-encryptor
+./c-note-encryptor -e input.txt output.enc
+./c-note-encryptor -d input.enc output.txt
 ```
 
-At this stage, the executable only prints usage information because the functional logic is not
-yet implemented.
+The program prompts for a non-empty password, forwards control to placeholder
+`encrypt_file`/`decrypt_file` functions, and reports the returned status.
 
 ## Repository Layout
 
