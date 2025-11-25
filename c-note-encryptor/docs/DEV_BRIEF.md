@@ -1,8 +1,5 @@
 # C Mini-Project: Password-Protected Note Encryptor
 
-**Source of Truth for GitHub Copilot / Codex**
-
-This document contains the complete, non-negotiable requirements for the C Mini-Project. All generated code must adhere strictly to these constraints, especially the inclusion of **mandatory concepts** and the **exact CLI contract**.
 
 ## 1. 🎯 Core Project Objective & Constraints
 
