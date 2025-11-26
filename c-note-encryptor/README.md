@@ -32,6 +32,13 @@ returned to the shell:
 - `2`: invalid arguments (e.g., missing mode flag)
 - `3`: I/O error (cannot open/read/write files)
 - `4`: password error (empty or unreadable)
+
+Additional behavior:
+
+- Rejects identical input/output paths and reports why.
+- Treats empty input files as a valid no-op (creates an empty output).
+- Prints a simple linked-list log of steps (mode selection, file opens, byte counts)
+  at program exit to demonstrate the self-referential structure requirement.
 The program prompts for a non-empty password, forwards control to placeholder
 `encrypt_file`/`decrypt_file` functions, and reports the returned status.
 

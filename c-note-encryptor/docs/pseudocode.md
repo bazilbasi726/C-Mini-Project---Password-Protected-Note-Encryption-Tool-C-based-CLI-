@@ -11,6 +11,13 @@ start program
   prompt for password
   if password empty
     print error and exit with code 4
+  create an empty log list
+  append mode selection to log
+  decide key as first character of password
+  open input for reading, output for writing
+  if either fails, exit with code 3
+  if input path equals output path, exit with code 2
+  if input file is empty, log the condition and exit success after closing files
   decide key as first character of password
   open input for reading, output for writing
   if either fails, exit with code 3
@@ -19,6 +26,9 @@ start program
     XOR byte with key
     write result to output
     if write fails, exit with code 3
+  log bytes processed and print log list
+  close files
+  return success code 0
   close files
   return success code 0
     print error and exit
