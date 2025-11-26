@@ -5,6 +5,7 @@ start program
   if args are invalid
     show usage text
     exit with error code 2
+    exit with error code
   determine mode from -e or -d flag
   capture input and output paths
   prompt for password
@@ -17,6 +18,9 @@ start program
   if either fails, exit with code 3
   if input path equals output path, exit with code 2
   if input file is empty, log the condition and exit success after closing files
+  decide key as first character of password
+  open input for reading, output for writing
+  if either fails, exit with code 3
   optional: preview first token with fscanf/fprintf for logging
   loop over each byte from input
     XOR byte with key
@@ -25,5 +29,13 @@ start program
   log bytes processed and print log list
   close files
   return success code 0
+  close files
+  return success code 0
+    print error and exit
+  if mode is encrypt
+    call encrypt_file stub
+  else
+    call decrypt_file stub
+  report returned status
 end program
 ```

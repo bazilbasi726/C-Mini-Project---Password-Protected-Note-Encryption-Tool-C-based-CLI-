@@ -41,4 +41,8 @@ void loglist_free(LogNode *head) {
         free(current);
         current = next;
     }
+#include "loglist.h"
+
+void log_event(const char *message) {
+    (void)message;
 }
