@@ -8,6 +8,8 @@ This brief tracks the scaffold expectations and the latest update from Prompt C.
   byte counts) and is printed at exit.
 - Edge cases handled: empty password, identical input/output paths, empty input files,
   and basic I/O failures when opening or writing files.
+- Makefile builds all sources into the `c-note-encryptor` binary and provides `make test`
+  to run encrypt→decrypt→diff checks for ASCII, UTF-8, and empty fixtures.
 - Makefile builds all sources into the `c-note-encryptor` binary.
 - Documentation (pseudocode, flowchart) reflects the current CLI, password handling, and
   XOR transform steps.

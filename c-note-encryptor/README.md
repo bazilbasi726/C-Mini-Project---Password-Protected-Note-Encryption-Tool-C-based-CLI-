@@ -39,6 +39,42 @@ Additional behavior:
 - Treats empty input files as a valid no-op (creates an empty output).
 - Prints a simple linked-list log of steps (mode selection, file opens, byte counts)
   at program exit to demonstrate the self-referential structure requirement.
+
+## Testing
+
+Quick test sweep (build + round-trip for small/UTF-8/empty fixtures):
+
+```bash
+make test
+```
+
+Manual commands (password `pass` for ASCII, `päss` for UTF-8 sample):
+
+```bash
+./c-note-encryptor -e tests/small.txt /tmp/out.enc <<'EOF'
+pass
+EOF
+./c-note-encryptor -d /tmp/out.enc /tmp/out.dec <<'EOF'
+pass
+EOF
+diff -u tests/small.txt /tmp/out.dec
+
+./c-note-encryptor -e tests/utf8.txt /tmp/out2.enc <<'EOF'
+päss
+EOF
+./c-note-encryptor -d /tmp/out2.enc /tmp/out2.dec <<'EOF'
+päss
+EOF
+diff -u tests/utf8.txt /tmp/out2.dec
+
+./c-note-encryptor -e tests/empty.txt /tmp/empty.enc <<'EOF'
+pass
+EOF
+./c-note-encryptor -d /tmp/empty.enc /tmp/empty.dec <<'EOF'
+pass
+EOF
+[ ! -s /tmp/empty.dec ]
+```
 The program prompts for a non-empty password, forwards control to placeholder
 `encrypt_file`/`decrypt_file` functions, and reports the returned status.
 
