@@ -3,6 +3,8 @@
 This repository contains the starter layout for the password-protected note encryption tool.
 It now performs the actual XOR transform (keyed by the first character of the password)
 while keeping the code structure simple for incremental development.
+It currently ships with placeholder implementations so future steps can focus on incremental
+feature development.
 
 ## Building
 
@@ -15,6 +17,7 @@ This produces the `c-note-encryptor` executable in the project root.
 ## Running
 
 The tool encrypts/decrypts using the first character of the password as the XOR key:
+The scaffold accepts encrypt or decrypt flags but the underlying logic is still stubbed:
 
 ```bash
 ./c-note-encryptor -e input.txt output.enc
@@ -29,6 +32,8 @@ returned to the shell:
 - `2`: invalid arguments (e.g., missing mode flag)
 - `3`: I/O error (cannot open/read/write files)
 - `4`: password error (empty or unreadable)
+The program prompts for a non-empty password, forwards control to placeholder
+`encrypt_file`/`decrypt_file` functions, and reports the returned status.
 
 ## Repository Layout
 
@@ -54,3 +59,6 @@ c-note-encryptor/
 │   └── utf8.txt
 └── input.txt
 ```
+# C Note Encryptor
+
+Placeholder README for the password-protected note encryption tool project.

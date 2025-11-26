@@ -47,12 +47,14 @@ int main(int argc, char *argv[]) {
     if (!fgets(password, sizeof(password), stdin)) {
         fprintf(stderr, "Failed to read password.\n");
         return STATUS_PASSWORD_ERROR;
+        return STATUS_INVALID_ARGUMENT;
     }
 
     trim_newline(password);
     if (password[0] == '\0') {
         fprintf(stderr, "Password cannot be empty.\n");
         return STATUS_PASSWORD_ERROR;
+        return STATUS_INVALID_ARGUMENT;
     }
     flags.has_password = 1;
 
@@ -71,4 +73,11 @@ int main(int argc, char *argv[]) {
 
     (void)flags;
     return result;
+#include "encrypt.h"
+#include "loglist.h"
+#include <stdio.h>
+
+int main(void) {
+    puts("C Note Encryptor placeholder");
+    return 0;
 }
