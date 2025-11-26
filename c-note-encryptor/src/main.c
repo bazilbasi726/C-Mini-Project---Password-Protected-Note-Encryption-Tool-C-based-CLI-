@@ -60,6 +60,8 @@ int main(int argc, char *argv[]) {
         loglist_print(log_head);
         loglist_free(log_head);
         return STATUS_PASSWORD_ERROR;
+        return STATUS_PASSWORD_ERROR;
+        return STATUS_INVALID_ARGUMENT;
     }
 
     trim_newline(password);
@@ -69,6 +71,8 @@ int main(int argc, char *argv[]) {
         loglist_print(log_head);
         loglist_free(log_head);
         return STATUS_PASSWORD_ERROR;
+        return STATUS_PASSWORD_ERROR;
+        return STATUS_INVALID_ARGUMENT;
     }
     flags.has_password = 1;
 
@@ -80,6 +84,10 @@ int main(int argc, char *argv[]) {
         result = encrypt_file(&info, password, &log_head);
     } else {
         result = decrypt_file(&info, password, &log_head);
+    if (info.mode == MODE_ENCRYPT) {
+        result = encrypt_file(&info, password);
+    } else {
+        result = decrypt_file(&info, password);
     }
 
     if (result != STATUS_OK) {
@@ -91,4 +99,13 @@ int main(int argc, char *argv[]) {
 
     (void)flags;
     return result;
+    (void)flags;
+    return result;
+#include "encrypt.h"
+#include "loglist.h"
+#include <stdio.h>
+
+int main(void) {
+    puts("C Note Encryptor placeholder");
+    return 0;
 }

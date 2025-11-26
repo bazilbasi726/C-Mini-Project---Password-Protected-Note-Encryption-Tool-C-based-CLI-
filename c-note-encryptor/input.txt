@@ -1,1 +1,2 @@
 Sample note content for future encryption steps.
+This is the default input.

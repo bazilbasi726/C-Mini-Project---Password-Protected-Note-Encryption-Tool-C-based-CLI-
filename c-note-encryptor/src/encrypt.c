@@ -25,6 +25,11 @@ static void log_message_with_number(LogNode **log, const char *prefix, long valu
 static StatusCode xor_transform(const NoteInfo *info, const char *password, LogNode **log) {
     if (info == NULL || password == NULL || info->input_path == NULL || info->output_path == NULL) {
         log_message(log, "Invalid arguments provided to xor_transform.");
+
+#include "encrypt.h"
+
+static StatusCode xor_transform(const NoteInfo *info, const char *password) {
+    if (info == NULL || password == NULL || info->input_path == NULL || info->output_path == NULL) {
         return STATUS_INVALID_ARGUMENT;
     }
 
@@ -52,6 +57,14 @@ static StatusCode xor_transform(const NoteInfo *info, const char *password, LogN
         return STATUS_IO_ERROR;
     }
     log_message(log, "Opened output file successfully.");
+        return STATUS_IO_ERROR;
+    }
+
+    FILE *output = fopen(info->output_path, "wb");
+    if (!output) {
+        fclose(input);
+        return STATUS_IO_ERROR;
+    }
 
     /* Demonstrate fscanf/fprintf without altering the file contents. */
     long original_pos = ftell(input);
@@ -83,6 +96,11 @@ static StatusCode xor_transform(const NoteInfo *info, const char *password, LogN
         unsigned char out_ch = ((unsigned char)ch) ^ key;
         if (fputc(out_ch, output) == EOF) {
             log_message(log, "Failed to write transformed byte.");
+    unsigned char key = (unsigned char)password[0];
+    int ch;
+    while ((ch = fgetc(input)) != EOF) {
+        unsigned char out_ch = ((unsigned char)ch) ^ key;
+        if (fputc(out_ch, output) == EOF) {
             fclose(input);
             fclose(output);
             return STATUS_IO_ERROR;
@@ -97,6 +115,9 @@ static StatusCode xor_transform(const NoteInfo *info, const char *password, LogN
         log_message(log, "Error detected during file transformation.");
     }
 
+    }
+
+    StatusCode status = ferror(input) ? STATUS_IO_ERROR : STATUS_OK;
     fclose(input);
     fclose(output);
     return status;
@@ -118,4 +139,30 @@ StatusCode decrypt_file(const NoteInfo *info, const char *password, LogNode **lo
         log_message(log, "Decryption completed successfully.");
     }
     return status;
+StatusCode encrypt_file(const NoteInfo *info, const char *password) {
+    return xor_transform(info, password);
+}
+
+StatusCode decrypt_file(const NoteInfo *info, const char *password) {
+    return xor_transform(info, password);
+
+#include "encrypt.h"
+
+StatusCode encrypt_file(const NoteInfo *info, const char *password) {
+    (void)info;
+    (void)password;
+    puts("encrypt_file stub");
+    return STATUS_OK;
+}
+
+StatusCode decrypt_file(const NoteInfo *info, const char *password) {
+    (void)info;
+    (void)password;
+    puts("decrypt_file stub");
+    return STATUS_OK;
+#include "encrypt.h"
+
+void encrypt_note(const char *input, char *output) {
+    (void)input;
+    (void)output;
 }

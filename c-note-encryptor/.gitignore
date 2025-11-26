@@ -5,3 +5,9 @@ c-note-encryptor
 # Editor settings
 *.swp
 .DS_Store
+build/
+*.o
+
+# Editor files
+.DS_Store
+*.swp
