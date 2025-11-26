@@ -27,6 +27,12 @@ typedef struct Flags {
 /* Status codes shared across modules during the scaffold phase. */
 typedef enum StatusCode {
     STATUS_OK = 0,
+    STATUS_INVALID_ARGUMENT = 2,
+    STATUS_IO_ERROR = 3,
+    STATUS_PASSWORD_ERROR = 4
+} StatusCode;
+
+#endif /* C_NOTE_ENCRYPTOR_TYPES_H */
     STATUS_INVALID_ARGUMENT,
     STATUS_IO_ERROR
 } StatusCode;

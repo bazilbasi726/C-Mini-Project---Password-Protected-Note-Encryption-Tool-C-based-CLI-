@@ -1,6 +1,8 @@
 # c-note-encryptor Scaffold
 
 This repository contains the starter layout for the password-protected note encryption tool.
+It now performs the actual XOR transform (keyed by the first character of the password)
+while keeping the code structure simple for incremental development.
 It currently ships with placeholder implementations so future steps can focus on incremental
 feature development.
 
@@ -14,6 +16,7 @@ This produces the `c-note-encryptor` executable in the project root.
 
 ## Running
 
+The tool encrypts/decrypts using the first character of the password as the XOR key:
 The scaffold accepts encrypt or decrypt flags but the underlying logic is still stubbed:
 
 ```bash
@@ -21,6 +24,14 @@ The scaffold accepts encrypt or decrypt flags but the underlying logic is still 
 ./c-note-encryptor -d input.enc output.txt
 ```
 
+The program prompts for a non-empty password, validates arguments, and performs a
+byte-wise XOR transform to produce encrypted or decrypted output. Status codes
+returned to the shell:
+
+- `0`: success
+- `2`: invalid arguments (e.g., missing mode flag)
+- `3`: I/O error (cannot open/read/write files)
+- `4`: password error (empty or unreadable)
 The program prompts for a non-empty password, forwards control to placeholder
 `encrypt_file`/`decrypt_file` functions, and reports the returned status.
 
